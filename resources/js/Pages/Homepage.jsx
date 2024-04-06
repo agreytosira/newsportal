@@ -1,10 +1,15 @@
-import { Link, Head } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 
 export default function Homepage({ title, description }) {
     return (
-        <main>
-            <h1>{title}</h1>
-            <p>{description}</p>
-        </main>
+        <>
+            <Head title={title} />
+            <main>
+                <div className="container px-4">
+                    <h1 className="text-2xl font-bold">{title}</h1>
+                    <p>{description}</p>
+                </div>
+            </main>
+        </>
     );
 }
