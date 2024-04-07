@@ -2,7 +2,7 @@ import React from "react";
 
 const isNews = (news) => {
     return (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="flex flex-col gap-4 xs:grid-cols-2 xs:grid sm:grid-cols-2 md:grid-cols-3">
             {news.data.map((data, index) => (
                 <div className="w-full shadow-xl card bg-base-100" key={index}>
                     <figure>
@@ -29,7 +29,7 @@ const isNews = (news) => {
 };
 
 const NoNews = () => {
-    return <div>"Saat ini belum ada berita yang tersedia"</div>;
+    return <div>"Saat ini belum ada berita yang tersedia</div>;
 };
 
 function NewsList({ news }) {
