@@ -1,8 +1,6 @@
 import React from "react";
 
-function NewsList({ news }) {
-    console.log("news", news);
-
+const isNews = (news) => {
     return (
         <div className="grid grid-cols-3 gap-4">
             {news.data.map((data, index) => (
@@ -28,6 +26,14 @@ function NewsList({ news }) {
             ))}
         </div>
     );
+};
+
+const NoNews = () => {
+    return <div>"Saat ini belum ada berita yang tersedia"</div>;
+};
+
+function NewsList({ news }) {
+    return !news ? NoNews() : isNews(news);
 }
 
 export default NewsList;
