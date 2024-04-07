@@ -22,8 +22,14 @@ export default function Homepage(props) {
                                     <h1 className="text-xl font-bold">
                                         {news.title}
                                     </h1>
-                                    <p className="text-slate-600">
+                                    <p className="text-sm text-slate-600">
                                         {news.description}
+                                    </p>
+                                    <p className="text-sm text-slate-600">
+                                        {news.category}
+                                    </p>
+                                    <p className="text-sm text-slate-600">
+                                        {news.author}
                                     </p>
                                 </div>
                             );
