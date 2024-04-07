@@ -2,15 +2,13 @@ import Navbar from "@/Components/Navbar";
 import NewsList from "@/Components/NewsList";
 import { Head } from "@inertiajs/react";
 
-export default function Homepage(props) {
-    console.log(props);
-
+export default function Homepage({ news }) {
     return (
         <>
-            <Head title={props.title} />
+            <Head />
             <Navbar />
             <main className="container">
-                <NewsList />
+                <NewsList news={news} />
             </main>
         </>
     );
