@@ -13,9 +13,12 @@ export default function Homepage(props) {
                         <p>{props.description}</p>
                     </div>
                     <div className="flex flex-col gap-2">
-                        {props.news.map((news) => {
+                        {props.news.map((news, index) => {
                             return (
-                                <div className="p-4 border border-slate-300">
+                                <div
+                                    className="p-4 border border-slate-300"
+                                    key={index}
+                                >
                                     <h1 className="text-xl font-bold">
                                         {news.title}
                                     </h1>
