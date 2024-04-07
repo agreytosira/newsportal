@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\News;
 use Illuminate\Database\Seeder;
 
 class NewsSeeder extends Seeder
@@ -12,13 +12,6 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('news')->insert([
-                'title' => fake()->title(),
-                'description' => fake()->paragraph(2, true),
-                'category' => fake()->sentence(),
-                'author' => fake()->name(),
-            ]);
-        }
+        News::factory()->count(10)->create();
     }
 }
