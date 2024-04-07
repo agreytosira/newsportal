@@ -1,4 +1,5 @@
 import Navbar from "@/Components/Navbar";
+import NewsList from "@/Components/NewsList";
 import { Head } from "@inertiajs/react";
 
 export default function Homepage(props) {
@@ -8,36 +9,8 @@ export default function Homepage(props) {
         <>
             <Head title={props.title} />
             <Navbar />
-            <main>
-                <div className="container">
-                    <div className="py-4">
-                        <h1 className="text-2xl font-bold">{props.title}</h1>
-                        <p>{props.description}</p>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        {props.news.map((news, index) => {
-                            return (
-                                <div
-                                    className="p-4 border border-slate-300"
-                                    key={index}
-                                >
-                                    <h1 className="text-xl font-bold">
-                                        {news.title}
-                                    </h1>
-                                    <p className="text-sm text-slate-600">
-                                        {news.description}
-                                    </p>
-                                    <p className="text-sm text-slate-600">
-                                        {news.category}
-                                    </p>
-                                    <p className="text-sm text-slate-600">
-                                        {news.author}
-                                    </p>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
+            <main className="container">
+                <NewsList />
             </main>
         </>
     );
