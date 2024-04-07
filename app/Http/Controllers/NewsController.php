@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news = News::all();
+        return Inertia::render('Homepage', [
+            'title' => 'News Portal',
+            'description' => 'Laravel learning media',
+            'news' => $news->toArray()
+        ]);
     }
 
     /**
