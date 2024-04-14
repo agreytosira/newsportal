@@ -14,7 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = new NewsCollection(News::paginate(8));
+        $news = new NewsCollection(News::paginate(9));
         return Inertia::render('Homepage', [
             'title' => 'News Portal',
             'description' => 'Laravel learning media',
