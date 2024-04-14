@@ -3,11 +3,11 @@ import NewsList from "@/Components/NewsList";
 import Paginator from "@/Components/Paginator";
 import { Head } from "@inertiajs/react";
 
-export default function Homepage({ news }) {
+export default function Homepage({ auth, news }) {
     return (
         <>
             <Head title="Homepage" />
-            <Navbar />
+            <Navbar user={auth.user} />
             <main className="container">
                 <NewsList news={news.data} />
             </main>
