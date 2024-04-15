@@ -1,7 +1,26 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
+import { useState } from "react";
 
-export default function Dashboard({ auth }) {
+export default function Dashboard({ auth, props }) {
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
+
+    console.log("dashboard", props);
+
+    const handleSubmit = () => {
+        const data = {
+            title,
+            description,
+            category,
+        };
+        router.post("/news", data);
+        setTitle("");
+        setDescription("");
+        setCategory("");
+    };
+
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -20,18 +39,29 @@ export default function Dashboard({ auth }) {
                             type="text"
                             placeholder="Judul"
                             className="w-full input input-bordered"
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title}
                         />
                         <input
                             type="text"
                             placeholder="Deskripsi"
                             className="w-full input input-bordered"
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description}
                         />
                         <input
                             type="text"
                             placeholder="Kategori"
                             className="w-full input input-bordered"
+                            onChange={(e) => setCategory(e.target.value)}
+                            value={category}
                         />
-                        <button className="btn btn-primary">SUBMIT</button>
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => handleSubmit()}
+                        >
+                            SUBMIT
+                        </button>
                     </div>
                 </div>
             </div>

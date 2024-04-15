@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NewsController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', [NewsController::class, 'index']);
+Route::post('/news', [NewsController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
